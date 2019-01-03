@@ -24,7 +24,7 @@ class Test extends Component {
     render(){
         return (
             <div>
-                <h1>Test Component</h1>
+                <h1>Something Else Said Here</h1>
             </div>
         );
     }
