@@ -1,14 +1,16 @@
 const express = require('express');
 const cors = require('cors');
 const PORT = process.env.PORT || 9000;
+const { resolve } = require('path');
 
 const app = express();
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(express.static(resolve(__dirname, 'client', 'dist')));
 
-app.get('/', (req, res) => {
-    res.send('<h1>The server is working!</h1>');
-});
+require('./routes')(app);
 
 app.listen(PORT, () => {
 
